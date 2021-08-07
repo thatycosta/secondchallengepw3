@@ -11,8 +11,7 @@ public class OrderEntity implements Serializable {
     private int id;
 
     private String clientName;
-    private String cellphone;
-    private String paymentType;
+    private String phone;
     private String totalPrice;
 
     public OrderEntity(){
@@ -35,20 +34,12 @@ public class OrderEntity implements Serializable {
         this.clientName = clientName;
     }
 
-    public String getCellphone() {
-        return cellphone;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setCellphone(String cellphone) {
-        this.cellphone = cellphone;
-    }
-
-    public String getPaymentType() {
-        return paymentType;
-    }
-
-    public void setPaymentType(String paymentType) {
-        this.paymentType = paymentType;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getTotalPrice() {

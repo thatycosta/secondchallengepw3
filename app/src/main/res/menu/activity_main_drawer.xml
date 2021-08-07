@@ -9,7 +9,7 @@
             android:icon="@drawable/ic_butan"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_list"
+            android:id="@+id/nav_createOrder"
             android:icon="@drawable/ic_butan"
             android:title="@string/order" />
         <item
@@ -17,7 +17,7 @@
             android:icon="@drawable/ic_butan"
             android:title="@string/address" />
         <item
-            android:id="@+id/impl"
+            android:id="@+id/nav_list"
             android:icon="@drawable/ic_butan"
             android:title="@string/historyOrder" />
 

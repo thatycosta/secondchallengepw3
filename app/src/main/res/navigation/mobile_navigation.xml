@@ -26,4 +26,25 @@
             android:id="@+id/action_nav_add_to_nav_list"
             app:destination="@id/nav_home" />
     </fragment>
+
+    <fragment
+        android:id="@+id/nav_createOrder"
+        android:name="com.example.butanogas.fragments.AddOrderFragment"
+        android:label="Pedido - Botijão de Gás 13kg"
+        tools:layout="@layout/fragment_add_order" >
+        <action
+            android:id="@+id/action_nav_create_to_nav_list"
+            app:destination="@id/nav_home" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_list"
+        android:name="com.example.butanogas.fragments.ListFragment"
+        android:label="Histórico de Pedidos"
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_nav_create_to_nav_list"
+            app:destination="@id/nav_home" />
+    </fragment>
+
 </navigation>

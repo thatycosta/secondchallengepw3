@@ -12,6 +12,7 @@
     <string name="district">Bairro</string>
     <string name="zipCode">CEP</string>
     <string name="btnAdd">Adicionar</string>
+    <string name="btnCreate">Criar Pedido</string>
     <string name="edit">Editar</string>
     <string name="exclude">Excluir</string>
 
@@ -19,6 +20,14 @@
     <string name="address">Adicionar Endereço</string>
     <string name="historyOrder">Histórico de Pedidos</string>
 
+    <string name="clientName">Nome</string>
+    <string name="phone">Telefone</string>
+    <string name="totalPrice">Valor Total</string>
+
+    <string name="typeOfPayment">Tipo de Pagamento</string>
+    <string name="cardNumber">Número do Cartão</string>
+    <string name="cardData">Validade Cartão</string>
+    <string name="securityCode">Código de Segurança</string>
 
     <string name="menu_home">Início</string>
     <string name="menu_gallery">Gallery</string>

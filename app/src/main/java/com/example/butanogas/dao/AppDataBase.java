@@ -8,13 +8,15 @@ import androidx.room.RoomDatabase;
 
 import com.example.butanogas.entity.AddressEntity;
 import com.example.butanogas.entity.OrderEntity;
+import com.example.butanogas.entity.PaymentEntity;
 
-@Database(entities = {AddressEntity.class, OrderEntity.class}, version = 1)
+@Database(entities = {AddressEntity.class, OrderEntity.class, PaymentEntity.class}, version = 3)
 public abstract class AppDataBase extends RoomDatabase {
     private static AppDataBase appDatabase;
 
     public abstract AddressDAO createAddressDAO();
     public abstract OrderDAO createOrderDAO();
+    public abstract PaymentDAO createPaymentDAO();
 
     public static AppDataBase getInstance(Context context) {
         if(appDatabase == null) {
