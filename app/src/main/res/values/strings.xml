@@ -15,8 +15,12 @@
     <string name="edit">Editar</string>
     <string name="exclude">Excluir</string>
 
+    <string name="order">Criar Pedido</string>
+    <string name="address">Adicionar Endereço</string>
+    <string name="historyOrder">Histórico de Pedidos</string>
 
-    <string name="menu_home">Home</string>
+
+    <string name="menu_home">Início</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
 </resources>
