@@ -1,6 +1,8 @@
 package com.example.butanogas;
 
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -65,4 +67,13 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId()== R.id.action_settings){
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(
+                    "https://www.gov.br/anp/pt-br"));
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
