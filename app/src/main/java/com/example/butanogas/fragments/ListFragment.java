@@ -39,24 +39,16 @@ public class ListFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_list, container, false);
         recyclerView = root.findViewById(R.id.recyclerView);
 
-        new AsyncTask<Void,Void, List<Object>>() {
+        new AsyncTask<Void,Void, List<OrderEntity>>() {
 
             @Override
-            protected List<Object> doInBackground(Void... voids) {
+            protected List<OrderEntity> doInBackground(Void... voids) {
                 OrderDAO orderDAO = AppDataBase.getInstance(getContext().getApplicationContext()).createOrderDAO();
-                PaymentDAO paymentDAO = AppDataBase.getInstance(getContext().getApplicationContext()).createPaymentDAO();
-
-                List<Object> list = new ArrayList<>();
-
-                List<PaymentEntity> payments = paymentDAO.getAllPaymentEntities();
-                List<OrderEntity> orders = orderDAO.getAllOrders();
-                list.addAll(orders);
-                list.addAll(payments);
-                return list;
+                return orderDAO.getAllOrders();
             }
 
             @Override
-            protected void onPostExecute(List<Object> orders) {
+            protected void onPostExecute(List<OrderEntity> orders) {
                 super.onPostExecute(orders);
                 getAll(orders);
             }
@@ -70,7 +62,7 @@ public class ListFragment extends Fragment {
         return root;
     }
 
-    protected  void getAll(List<Object> orders){
+    protected  void getAll(List<OrderEntity> orders){
         recyclerView.setAdapter(new Adapter(orders));
     }
 }

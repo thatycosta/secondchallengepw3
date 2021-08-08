@@ -50,21 +50,19 @@ public class AddOrderFragment extends Fragment {
                     @Override
                     protected Integer doInBackground(Void... voids) {
                         OrderDAO orderDAO = AppDataBase.getInstance(getContext().getApplicationContext()).createOrderDAO();
-                        PaymentDAO paymentDAO = AppDataBase.getInstance(getContext().getApplicationContext()).createPaymentDAO();
 
                         OrderEntity orderEntity = new OrderEntity();
-                        PaymentEntity paymentEntity = new PaymentEntity();
-
                         orderEntity.setClientName(clientName.getText().toString());
                         orderEntity.setPhone(phone.getText().toString());
                         orderEntity.setTotalPrice("100");
-                        orderDAO.insert(orderEntity);
+                        PaymentEntity paymentEntity = new PaymentEntity(typeOfPayment.getText().toString(), cardNumber.getText().toString(), cardData.getText().toString(), securityCode.getText().toString());
+                        orderEntity.setPaymentEntity(paymentEntity);
 
-                        paymentEntity.setTypeOfPayment(typeOfPayment.getText().toString());
-                        paymentEntity.setCardNumber(cardNumber.getText().toString());
-                        paymentEntity.setCardData(cardData.getText().toString());
-                        paymentEntity.setSecurityCode(securityCode.getText().toString());
-                        paymentDAO.insert(paymentEntity);
+//                        orderEntity.getPaymentEntity().setTypeOfPayment(typeOfPayment.getText().toString());
+//                        orderEntity.getPaymentEntity().setCardNumber(cardNumber.getText().toString());
+//                        orderEntity.getPaymentEntity().setCardData(cardData.getText().toString());
+//                        orderEntity.getPaymentEntity().setSecurityCode(securityCode.getText().toString());
+                        orderDAO.insert(orderEntity);
 
                         return orderEntity.getId();
                     }

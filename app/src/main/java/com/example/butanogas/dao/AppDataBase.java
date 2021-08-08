@@ -10,7 +10,7 @@ import com.example.butanogas.entity.AddressEntity;
 import com.example.butanogas.entity.OrderEntity;
 import com.example.butanogas.entity.PaymentEntity;
 
-@Database(entities = {AddressEntity.class, OrderEntity.class, PaymentEntity.class}, version = 3)
+@Database(entities = {AddressEntity.class, OrderEntity.class, PaymentEntity.class}, version = 5)
 public abstract class AppDataBase extends RoomDatabase {
     private static AppDataBase appDatabase;
 

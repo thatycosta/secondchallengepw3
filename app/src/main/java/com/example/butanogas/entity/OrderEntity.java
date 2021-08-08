@@ -1,5 +1,6 @@
 package com.example.butanogas.entity;
 
+import androidx.room.Embedded;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -13,6 +14,9 @@ public class OrderEntity implements Serializable {
     private String clientName;
     private String phone;
     private String totalPrice;
+
+    @Embedded(prefix = "payment_bean_")
+    private PaymentEntity paymentEntity;
 
     public OrderEntity(){
 
@@ -48,5 +52,13 @@ public class OrderEntity implements Serializable {
 
     public void setTotalPrice(String totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public PaymentEntity getPaymentEntity() {
+        return paymentEntity;
+    }
+
+    public void setPaymentEntity(PaymentEntity paymentEntity) {
+        this.paymentEntity = paymentEntity;
     }
 }

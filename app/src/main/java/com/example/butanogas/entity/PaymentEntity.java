@@ -17,6 +17,17 @@ public class PaymentEntity implements Serializable {
 
     public PaymentEntity(){}
 
+    public PaymentEntity(String typeOfPayment, String cardNumber, String cardData, String securityCode) {
+        this.typeOfPayment = typeOfPayment;
+        this.cardNumber = cardNumber;
+        this.cardData = cardData;
+        this.securityCode = securityCode;
+    }
+
+    public PaymentEntity(String typeOfPayment){
+        this.typeOfPayment = typeOfPayment;
+    }
+
     public int getId() {
         return id;
     }

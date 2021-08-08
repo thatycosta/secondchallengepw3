@@ -19,9 +19,9 @@ import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     Context context;
-    List<Object> orders = new ArrayList<>();
+    List<OrderEntity> orders = new ArrayList<>();
 
-    public Adapter(List<Object> orders) {
+    public Adapter(List<OrderEntity> orders) {
         this.orders = orders;
     }
 
@@ -36,29 +36,16 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull Adapter.ViewHolder viewHolder, final int position) {
-        if(orders.get(position) instanceof OrderEntity){
-            //Object test = orders.get(position + 2);
             OrderEntity orderEntity = (OrderEntity) orders.get(position);
             viewHolder.name.setText(orderEntity.getClientName());
             viewHolder.phone.setText(orderEntity.getPhone());
             viewHolder.totalPrice.setText(orderEntity.getTotalPrice());
-            viewHolder.typeOfPayment.setText("Dinheiro");
-            //PaymentEntity paymentEntity = (PaymentEntity) test;
-            //viewHolder.typeOfPayment.setText(paymentEntity.getTypeOfPayment());
-        }
+            viewHolder.typeOfPayment.setText(orderEntity.getPaymentEntity().getTypeOfPayment());
     }
 
     @Override
     public int getItemCount() {
-        int size = 0;
-        for(int i = 0; i < orders.size(); i++){
-            if(orders.get(i) instanceof OrderEntity){
-                size++;
-            }
-        }
-
-
-        return size;
+        return orders.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
