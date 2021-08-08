@@ -1,11 +1,16 @@
 package com.example.butanogas.fragments;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,23 +18,29 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import com.example.butanogas.R;
+import com.example.butanogas.dao.AddressDAO;
 import com.example.butanogas.dao.AppDataBase;
 import com.example.butanogas.dao.OrderDAO;
 import com.example.butanogas.dao.PaymentDAO;
+import com.example.butanogas.entity.AddressEntity;
 import com.example.butanogas.entity.OrderEntity;
 import com.example.butanogas.entity.PaymentEntity;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 
-public class AddOrderFragment extends Fragment {
+import java.util.ArrayList;
+import java.util.List;
+
+public class AddOrderFragment extends Fragment  {
     private TextInputEditText clientName;
     private TextInputEditText phone;
-    private TextInputEditText totalPrice;
     private TextInputEditText typeOfPayment;
     private TextInputEditText cardNumber;
     private TextInputEditText cardData;
     private TextInputEditText securityCode;
     private Button btnCreate;
+
+
 
     @Nullable
     @Override
@@ -43,6 +54,7 @@ public class AddOrderFragment extends Fragment {
         cardData = root.findViewById(R.id.cardData);
         securityCode = root.findViewById(R.id.securityCode);
         btnCreate = root.findViewById(R.id.btnCreate);
+
         btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,11 +69,6 @@ public class AddOrderFragment extends Fragment {
                         orderEntity.setTotalPrice("100");
                         PaymentEntity paymentEntity = new PaymentEntity(typeOfPayment.getText().toString(), cardNumber.getText().toString(), cardData.getText().toString(), securityCode.getText().toString());
                         orderEntity.setPaymentEntity(paymentEntity);
-
-//                        orderEntity.getPaymentEntity().setTypeOfPayment(typeOfPayment.getText().toString());
-//                        orderEntity.getPaymentEntity().setCardNumber(cardNumber.getText().toString());
-//                        orderEntity.getPaymentEntity().setCardData(cardData.getText().toString());
-//                        orderEntity.getPaymentEntity().setSecurityCode(securityCode.getText().toString());
                         orderDAO.insert(orderEntity);
 
                         return orderEntity.getId();
@@ -75,6 +82,4 @@ public class AddOrderFragment extends Fragment {
         });
         return root;
     }
-
-
 }

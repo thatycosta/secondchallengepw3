@@ -37,10 +37,15 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull Adapter.ViewHolder viewHolder, final int position) {
             OrderEntity orderEntity = (OrderEntity) orders.get(position);
-            viewHolder.name.setText(orderEntity.getClientName());
-            viewHolder.phone.setText(orderEntity.getPhone());
-            viewHolder.totalPrice.setText(orderEntity.getTotalPrice());
-            viewHolder.typeOfPayment.setText(orderEntity.getPaymentEntity().getTypeOfPayment());
+            viewHolder.name.setText("Cliente: " + orderEntity.getClientName());
+            viewHolder.phone.setText("Telefone: " + orderEntity.getPhone());
+            viewHolder.totalPrice.setText("Valor Total do Pedido: " + orderEntity.getTotalPrice());
+            viewHolder.typeOfPayment.setText("Tipo de Pagamento: "  + orderEntity.getPaymentEntity().getTypeOfPayment());
+            if(!orderEntity.getPaymentEntity().getTypeOfPayment().equals("Dinheiro")){
+                viewHolder.cardNumber.setText(orderEntity.getPaymentEntity().getCardNumber());
+            }else{
+                viewHolder.cardNumber.setText("-");
+            }
     }
 
     @Override
@@ -52,6 +57,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         TextView name;
         TextView phone;
         TextView typeOfPayment;
+        TextView cardNumber;
         TextView totalPrice;
 
         public ViewHolder(View itemView){
@@ -59,6 +65,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             name = itemView.findViewById(R.id.textViewClientName);
             phone = itemView.findViewById(R.id.textViewPhone);
             typeOfPayment = itemView.findViewById(R.id.textViewTypeOfPayment);
+            cardNumber = itemView.findViewById(R.id.textCardNumber);
             totalPrice = itemView.findViewById(R.id.textViewTotalPrice);
         }
     }
